@@ -1,10 +1,8 @@
-const app = require('express')();
-const bodyParser = require('body-parser');
 const mjml2html = require('mjml');
-const shouldListen = process && process.env ? process.env.indexOf('--listen') > -1 : false;
 
 const parseMjml = (body, options = {}) => mjml2html(body, options);
-const handleParse = async (req, res) => {
+
+module.exports = async (req, res) => {
     const {
         options = {},
         body
@@ -31,18 +29,3 @@ const handleParse = async (req, res) => {
         });
     }
 };
-
-if (shouldListen) {
-    const PORT = 9000;
-
-    app.use(bodyParser.urlencoded({ extended: true }));
-    app.use(bodyParser.json());
-
-    app.post('/parse', handleParse);
-
-    app.listen(PORT, () => {
-        console.log(`MJML server listening on ${PORT}...`);
-    });
-} else {
-    module.exports = handleParse;
-}
