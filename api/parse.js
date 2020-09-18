@@ -35,4 +35,6 @@ if (shouldListen) {
     app.listen(PORT, () => {
         console.log(`MJML server listening on ${PORT}...`);
     });
+} else {
+    module.exports = handleParse;
 }
