@@ -9,15 +9,23 @@ const handleParse = (req, res) => {
         options = {},
         body
     } = req.body;
+
+    if (!body) {
+        return res.status(400).json({
+            success: false,
+            error: 'Required parameter "body" is empty.',
+        });
+    }
+
     try {
         const result = parseMjml(body, options);
-        res.json({
+        return res.json({
             success: true,
             result,
         });
     } catch (e) {
         console.error(e);
-        res.status(500).json({
+        return res.status(500).json({
             success: false,
             error: e.message,
         });
