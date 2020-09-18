@@ -1,7 +1,7 @@
 const app = require('express')();
 const bodyParser = require('body-parser');
 const mjml2html = require('mjml');
-const shouldListen = process.env.indexOf('--listen') > -1;
+const shouldListen = process && process.env ? process.env.indexOf('--listen') > -1 : false;
 
 const parseMjml = (body, options = {}) => mjml2html(body, options);
 const handleParse = async (req, res) => {
