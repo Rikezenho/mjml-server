@@ -5,7 +5,7 @@ A simple server for parsing MJML templates.
 ## Usage
 
 - Install Node.js modules
-- Run `index.js`
+- Run `npm start`
 - With Postman, Insomnia or any other REST client, do a POST request to `http://localhost:9000/parse` using the following schema (example):
 
 ```json

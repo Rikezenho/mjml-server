@@ -4,7 +4,7 @@ const mjml2html = require('mjml');
 const shouldListen = process.env.indexOf('--listen') > -1;
 
 const parseMjml = (body, options = {}) => mjml2html(body, options);
-const handleParse = (req, res) => {
+const handleParse = async (req, res) => {
     const {
         options = {},
         body
