@@ -2,7 +2,11 @@
 
 A simple server for parsing MJML templates.
 
-## Usage
+## Remote usage
+
+You can do a POST request to `https://mjml-server.vercel.app/api/parse` using the same instructions as below.
+
+## Local usage
 
 - Install Node.js modules
 - Run `npm start`
